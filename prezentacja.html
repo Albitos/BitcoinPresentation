@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=1024, user-scalable=no">
+
+	<title>Bitcoin</title>
+	
+	<!-- Required stylesheet -->
+	<link rel="stylesheet" href="core/deck.core.css">
+	
+	<!-- Extension CSS files go here. Remove or add as needed. -->
+	<link rel="stylesheet" href="extensions/goto/deck.goto.css">
+	<link rel="stylesheet" href="extensions/menu/deck.menu.css">
+	<link rel="stylesheet" href="extensions/navigation/deck.navigation.css">
+	<link rel="stylesheet" href="extensions/status/deck.status.css">
+	<link rel="stylesheet" href="extensions/hash/deck.hash.css">
+	<link rel="stylesheet" href="extensions/scale/deck.scale.css">
+
+	<!-- Style theme. More available in /themes/style/ or create your own. -->
+	<link rel="stylesheet" href="themes/style/swiss.css">
+	
+	<!-- Transition theme. More available in /themes/transition/ or create your own. -->
+	<link rel="stylesheet" href="themes/transition/fade.css">
+	
+	<!-- Required Modernizr file -->
+	<script src="modernizr.custom.js"></script>
+</head>
+<body class="deck-container">
+
+<!-- Begin slides. Just make elements with a class of slide. -->
+
+<section class="slide">
+	<h1><img style="margin-bottom: 10px;" src="btc-logo.png">kryptografia w służbie rewolucji ekonomicznej</h1>
+
+</section>
+
+<section class="slide">
+	<h2>Czym są pieniądze?</h2>
+	<p><strong>Pieniądze</strong> to materialny lub niematerialny środek, który można wymienić na towar lub usługę.</p>
+	<ul>
+		<li>Pzechowują wartość
+		<li>Służą do wymiany dóbr
+	</ul>
+	<p>W dzisiejszych czasach głównym środkiem płatniczym są tzw. waluty fiducjarne (łac. fides – wiara),
+	których wartość pochodzi z wiary w to, że znajdą się osoby chętne go przyjąć.</p>
+	<p>Mają one wiele problemów:</p>
+	<ul>
+		<li>Brak ograniczenia ich ilości (drukowanie pieniądza)</li>
+		<li>Brak prostego mechanizmu przekazywania na duże odległości</li>
+	</ul>
+</section>
+ 
+<section class="slide">
+	<h2>Czym jest Bitcoin?</h2>
+	<ul>
+		<li class="slide">Bitcoin jest cyfrową, zdecentralizowaną walutą opartą na kryptografii
+		<li class="slide">Bitcoin umożliwia transakcje finansowe online pomiędzy stronami bez udziału stron trzecich
+		<li class="slide">Stworzony został przez programistę (lub grupę programistów) o pseudonimie Satoshi Nakamoto
+		<li class="slide">Bitcoin nie jest kontrolowany przez jakąkolwiek firmę, czy rząd
+		<li class="slide">Bitcoiny w swym działaniu imitują złoto
+	</ul>
+</section>
+
+<section class="slide">
+	<h2>Cechy Bitcoinów</h2>
+	<ul>
+		<li>Całkowita liczba BTC jest ograniczona:
+			<ul><li>Obecnie w obiegu: 11 MLN<li>Do 2060 roku: 21 MLN</ul>
+		</li>
+	</ul>		
+	<img src="total_over_time.png" width="35%">
+
+</section>
+
+<section class="slide">
+	<h2>Cechy Bitcoinów c.d.</h2>
+	<ul>
+		<li class="slide">Każdy Bitcoin jest podzielny do 8 miejsc po przecinku
+			<ul>
+				<li>Pozwala to na podzielenie wszystkich BTC w obiegu na 21*10^14 części
+				<li>Najmniejszy nominał to 1 satoshi (0.00000001 BTC)
+				<li>Limit ten może zostać zmieniony
+			</ul>
+		</li>
+
+		<li class="slide">Transakcje w sieci Bitcoin są <strong>nieodwracalne</strong>
+		<li class="slide">Krótki czas potwierdzenia transakcji (od 10 minut do 1 godziny)
+		<li class="slide">Niski koszt transakcji
+</section>
+
+<section class="slide">
+	<h2>Jak działa Bitcoin?</h2>
+	<ul>
+		<li>Bitcoiny przypisane są do kont będących parą kluczy ECDSA (algorytm szyfrowania asymetrycznego)
+		<li>Adresem konta jest jego klucz publiczny
+		<li>Liczba możliwych adresów: 2^160 (1,461,501,637,330,902,918,203,684,832,716,283,019,655,932,542,976)
+		<li>Kiedy tworzone jest nowe konto, wybierany jest losowy adres. Prawdopodobieństwo kolizji jest niemalże zerowe!
+			<ul><li>ale... "correct horse battery staple"</li></ul>
+		<li>Przykładowy adres: 1M1Xqm3GKNawhdKSNXgymYB72TBUnS9z4r
+		<li>Adresy pogrupowane są w portfele
+		<li>Przynależność bitcoinów do adresu zapisana jest za pomocą łańcucha transakcji
+	</ul>
+</section>
+<section class="slide">
+	<h2>Jak działa Bitcoin? c.d.</h2>
+	<ul>
+		<li>Lista wszystkich transakcji jest publiczna
+		<li>Transakcja składa się z dowolnej liczby wejść i wyjść (adresów źródłowych i docelowych)
+			<ul><li>Suma BTC na wejściu i wyjściu musi być zgodna</li><li>Jeżeli tak nie jest, to nadmiarowe BTC są wysyłane jako tzw. reszta</li></ul>
+		<li>Każda transakcja jest cyfrowo podpisana przez nadawcę
+		<li>Transfer środków polega na podpisaniu hasha SHA256 poprzedniej transakcji oraz publicznego klucza nowego właściciela
+		<li>Odbiorca może zweryfikować transakcję za pomocą klucza publicznego nadawcy
+	</ul>
+	<img src="transactions.png">
+</section>
+
+<section class="slide">
+	<h2>Problem podwójnych wydatków (double-spend problem)</h2>
+	<ul>
+	<li>Odbiorca nie może zweryfikować, czy nadawca nie wydał tych samych bitcoinów wiele razy
+	<li>Częstym rozwiązaniem jest wprowadzenie centralnej instytucji nadzorującej transakcje
+	</ul>
+</section>
+
+<section class="slide">
+	<h2>Rozwiązanie: Serwer timestamp</h2>
+	<ul>
+	<li>Rozwiązaniem jest rozproszony serwer timestamp przechowujący wszystkie transakcje
+	<li>Transakcje przechowywane są w blokach, które są rozsyłane do wszystkich użytkowników
+	<li>Każdy blok zawiera hash SHA256 poprzedniego bloku, tworząc w ten sposób łancuch (ang. blockchain)
+	</ul>
+	<img src="timestamp.png">
+</section>
+
+<section class="slide">
+	<h2>Dowód pracy (proof of work)</h2>
+	<ul>
+		<li>Stworzenie nowego bloku wymaga rozwiązania problemu matematycznego
+			<ul>
+				<li>Poszukiwana jest specjalna wartość (tzw. nonce), która po dołączeniu do bloku sprawi, że jego hash SHA256 będzie zaczynał się od pewnej liczby zer
+				<li>Liczba wymaganych zer określona jest przez parametr trudności
+				<li>Trudność określona jest tak, aby jeden blok był generowany co około 10 minut. Nowa wartość trudności ustalana jest co 2016 bloków.
+			</ul>
+		<li>Mechanizm ten pozwala na osiągnięcie porozumienia pomiędzy użytkownikami odnośnie historii transakcji
+			<ul>
+				<li>Tylko transkacje zawarte w najdłuższym łańcuchu bloków są uważane za ważne
+		</li>
+	</ul>
+	<img src="proofofwork.png">
+</section>
+
+<section class="slide">
+	<h2>Decentralizacja zaufania</h2>
+	<img src="blockchain.png" style="float:right">
+	<p>Dzięki takiemu rozwiązaniu nie musi istnieć centralna instytucja weryfikująca transakcje, a oszustwa są praktycznie niemożliwe:</p>
+	<ul>
+		<li>Aby zmodyfikować poprzedni blok, atakujący musiałby wygenerować własną jego wersję, a następnie wykonać pracę związaną ze wszystkimi jego następcami aby wyprzedzić oryginalny blockchain
+		<li>Trudność takiej operacji rośnie wykładniczo wraz z ilością bloków wygenerowanych później
+			<ul><li>Obecnie jako całkowicie bezpieczną wartość uważa się 6 wygenerowanych bloków (potwierdzeń)</ul>
+		<li>Jeżeli większość mocy obliczeniowej jest kontrolowana przez "uczuciwych" użytkowników, to ich łańcuch bloków będzie rósł szybciej od tych "nieuczciwych"
+		<li>Im więcej użytkowników i mocy obliczeniowej, tym system jest bezpieczeniejszy</li>
+		<li>Dlaczego w takim razie użytkownik chciałby być uczciwy?
+	</ul>
+</section>
+
+<section class="slide">
+	<h2>Wydobywanie bitcoinów</h2>
+	<img src="guilds.png" style="float:right">
+	<ul>
+		<li>Użytkownik, który wygeneruje blok otrzymuje w nagrodę nowe bitcoiny
+			<ul><li>Początkowo było to 50 BTC
+				<li>Obecnie wartość ta wynosi 25 BTC</li>
+				<li>Wartość ta zmniejsza się o połowę co 210,000 bloków (średnio co 4 lata)
+			</ul>
+		<li>Dodatkowo otrzymuje on wszystkie opłaty za transakcje zawarte w bloku
+		<li>Rozwiązanie takie sprawia, że użytkownicy są zmotywowani do wspierania sieci i generowania prawidłowych bloków
+		<li>Nie wszyscy użytkownicy tworzą bloki. Tych, którzy się tym zajmują potocznie nazywa się górnikami.</li>
+		<li>Górnicy często łączą się w gildie, aby zwiększyć szansę na odkrycie bloku. Nagroda jest dzielona pomiędzy wszystkich członków gildii.</li>
+	</ul>
+</section>
+
+<section class="slide">
+	<img src="rig.jpg" width="600" style="float:right">
+	<h2>Wydobywanie bitcoinów - urządzenia</h2>
+	<ul>
+		<li>Na początku istnienia sieci do generowania hashy SHA256 używane były CPU
+		<ul><li>prędkości do 1 MHash/s</li></ul></li>
+		<li>Wkrótce powstały pierwsze implementacje bitcoina wykorzystujące do obliczeń karty graficzne
+		<ul><li>prędkości do 1000 MHash/s</li></ul></li>
+		<li>Następnym krokiem w rozwoju sieci były specjalnie zaprogramowane układy FPGA (Field Programmable Gate Array)
+		<ul><li>prędkości do 50 GHash/s</li></ul></li>
+		<li>Obecnie do generowania hasy SHA256 wykorzystuje się dedykowane układy scalone (tzw. ASIC - Application Specific Integrated Circuit)
+		<ul><li>prędkości do 500 GHash/s</li></ul></li>
+	</ul>
+</section>
+
+
+<section class="slide">
+	<h2>Problemy i zagrożenia dla sieci</h2>
+	<ul>
+		<li>Atak 51%
+			<ul><li>Mało prawdopodobny ze względu na nieopłacalność</li></ul></li>
+		<li>Komputery kwantowe - możliwość "odwrócenia" ECDSA
+			<ul><li>Rozwiązanie: zmiana algorytmu obsługującego konta</li></ul></li>
+		<li>Błędy w oprogramowaniu
+			<ul><li>Prawdopodobne, jednak jakość kodu w implementacji bitcoin jest bardzo wysoka</li><li>Zdarzył się już przypadek tzw. fork'a - problem został bardzo szybko rozwiązany</li></ul>
+		</li>
+		<li>Utrata kluczy prywatnych - odzyskanie bitcoinów z kont do których właściciele zagubili klucze jest niemożliwe
+			<ul>
+				<li>Nie jest to duży problem - w obiegu faktycznie będzie mniej BTC, jednak dzięki ich podzielności nigdy nie zabraknie waluty</li>
+				<li>W najgorszym razie cały światowy rynek będzie warty 1 BTC ;)</li>
+				<li>Obecnie szacuje się, że około 1mln BTC zostało utraconych</li></ul>
+		</li>
+	</ul>
+</section>
+<section class="slide">
+	<h2>Aktualny stan sieci</h2>
+	<img src="hashrate.png" width="1000" style="float: right">
+	<ul>
+		<li>Nagroda za stworzenie bloku: 25 BTC
+		<li>Trudność: 12,153,411.71
+		<li>Hash Rate sieci: 128,079.67 GH/s</li>
+	</ul>
+	<ul>
+		<li>Kurs USD/BTC: 120 USD
+		<li>Kurs PLN/BTC: 390 PLN
+		<li>Wartość wszystkich BTC: 1,350,481,214 USD</li>
+	</ul>
+</section>
+
+<section class="slide">
+	<h2>Jak zdobyć bitcoiny?</h2>
+	<p>Istnieje wiele możliwości:</p>
+	<ul>
+		<li>Rozpocząć wydobycie na własną rękę</li>
+		<li>Odkupić je od znajomego (<a href="http://localbitcoins.com">http://localbitcoins.com</a>)</li>
+		<li>Skorzystać z usług kantorów (<a href="http://mtgox.com">http://mtgox.com</a> i <a href="http://bitstamp.net">http://bitstamp.net</a>)</li>
+		<li>Bankomaty BTC dostępne w niektórych krajach</li>
+	</ul>
+</section>
+
+<section class="slide">
+	<h2>Co można z nimi zrobić?</h2>
+	<p>Z bitcoinami można zrobić praktyczne wszystko to, co ze zwykłą walutą:</p>
+	<ul>
+		<li>Kupić gry na Steam (<a href="http://steambits.com">http://steambits.com</a>)</li>
+		<li>Kupić elektronikę (<a href="https://www.bitcoinstore.com/">https://www.bitcoinstore.com</a>)</li>
+		<li>Uprawiać hazard (<a href="http://satoshidice.com">http://satoshidice.com</a>)</li>
+		<li><a href="http://www.forbes.com/sites/kashmirhill/2013/05/06/living-on-bitcoin-for-a-week-cant-pay-the-rent/">Przeżyć przez tydzień korzystając tylko z bitcoinów jako środka płatności</a></li>
+		<li><a href="http://wyborcza.biz/Gieldy/1,122116,13975011,Co_mozna_kupic_za_wirtualna_walute__Apartament__porsche_.html">Kupić apartament lub nowe porshe</a></li>
+	</ul>
+</section>
+
+<section class="slide">
+	<h2>Dlaczego Bitcoin?</h2>
+	<p>Jaką przewagę posiada Bitcoin nad tradycyjnymi walutami?</p>
+	<ul>
+		<li>Niemal natychmiastowy transfer środków na dużą odległość bez prowizji
+		<ul><li>Próbowaliście kiedyś przesłać komuś pieniądze za granicę?</li></ul></li>
+		<li>Możliwość zawierania anonimowych transakcji</li>
+		<li>Brak konieczności istnienia banków
+		<ul><li>Scenariusz cypryjski nie miałby prawa bytu w systemie opartym o Bitcoiny</li></ul>
+		<li>Deflacja waluty zamiast inflacji
+		<ul><li>Co roku twoje pieniądze tracą nawet do 5% swojej wartości (w czasach dobrobytu)</li></ul>
+		</li>
+		<li>Bardzo wiele nowych możliwości dzięki protokołowi Bitcoin:
+			<ul>
+				<li>Mikrotranakcje</li>
+				<li>Escrow</li>
+				<li>Transakcje wiązane</li>
+				<li>Kryptograficzne loterie</li>
+			</ul>
+		</li>
+		</li>
+	</ul>
+</section>
+<section class="slide">
+	<h1>Dziękuję za uwagę</h1>
+</section>
+
+<section class="slide">
+	<h2>Ciekawostki</h2>
+	<ul>
+		<li>Pierwszą fizyczną rzeczą zakupioną w BTC była pizza warta 25 USD kupiona za 10000 BTC. Dzisiaj jej wartość wynosiłaby 1 213 944 USD.</li>
+		<li>Bitcoiny dzięki swojej anonimowości często są wykorzystywane do przeprowadzania nielegalnych transakcji</li>
+		<li>Artykuł o Bitcoin jest jednym z 35 najczęściej czytanych na Wikipedii</li>
+		<li>Istnieje duża szansa, że Satoshi nadal posiada około 1mln BTC wygenerowanych we wczesnym etapie rozwoju systemu</li>
+	</ul>
+</section>
+<!-- End slides. -->
+
+
+<!-- Begin extension snippets. Add or remove as needed. -->
+
+<!-- deck.navigation snippet -->
+<a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
+<a href="#" class="deck-next-link" title="Next">&#8594;</a>
+
+<!-- deck.status snippet -->
+<p class="deck-status">
+	<span class="deck-status-current"></span>
+	/
+	<span class="deck-status-total"></span>
+</p>
+
+<!-- deck.goto snippet -->
+<form action="." method="get" class="goto-form">
+	<label for="goto-slide">Go to slide:</label>
+	<input type="text" name="slidenum" id="goto-slide" list="goto-datalist">
+	<datalist id="goto-datalist"></datalist>
+	<input type="submit" value="Go">
+</form>
+
+<!-- deck.hash snippet -->
+<a href="." title="Permalink to this slide" class="deck-permalink">#</a>
+
+<!-- End extension snippets. -->
+
+
+<!-- Required JS files. -->
+<script src="jquery-1.7.2.min.js"></script>
+<script src="core/deck.core.js"></script>
+
+<!-- Extension JS files. Add or remove as needed. -->
+<script src="core/deck.core.js"></script>
+<script src="extensions/hash/deck.hash.js"></script>
+<script src="extensions/menu/deck.menu.js"></script>
+<script src="extensions/goto/deck.goto.js"></script>
+<script src="extensions/status/deck.status.js"></script>
+<script src="extensions/navigation/deck.navigation.js"></script>
+<script src="extensions/scale/deck.scale.js"></script>
+
+<!-- Initialize the deck. You can put this in an external file if desired. -->
+<script>
+	$(function() {
+		$.deck('.slide');
+	});
+</script>
+</body>
+</html>
